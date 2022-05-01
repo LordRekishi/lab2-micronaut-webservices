@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  backend:
+    container_name: lab2-micronaut-webservices
+    image: lab2-micronaut-webservices:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/src
+    environment:
+      - MONGODB_CONNSTRING=mongodb://username:password@mongo
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - db:/var/lib/mongo
+    environment:
+      - MONGO_INITDB_DATABASE=parts
+      - MONGO_INITDB_ROOT_USERNAME=username
+      - MONGO_INITDB_ROOT_PASSWORD=password
+
+volumes:
+  db:
+    driver: local
