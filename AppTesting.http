@@ -1,0 +1,19 @@
+### GET all request
+GET http://localhost:8080/parts
+
+### POST request with name and description
+POST http://localhost:8080/parts
+Content-Type: application/json
+
+{
+  "name": "Handlebar",
+  "description": "Can you handle it?"
+}
+
+### POST request with only name
+POST http://localhost:8080/parts
+Content-Type: application/json
+
+{
+  "name": "Headlight"
+}
