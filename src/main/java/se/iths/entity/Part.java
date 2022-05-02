@@ -19,16 +19,16 @@ public class Part {
     @BsonProperty("description")
     private final String description;
 
+    public Part(@NonNull String name) {
+        this(name, null);
+    }
+
     @Creator
     @BsonCreator
     public Part(@NonNull @BsonProperty("name") String name,
                 @Nullable @BsonProperty("description") String description) {
         this.name = name;
         this.description = description;
-    }
-
-    public Part(@NonNull String name) {
-        this(name, null);
     }
 
     @NonNull
