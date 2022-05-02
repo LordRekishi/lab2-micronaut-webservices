@@ -39,7 +39,7 @@ docker run -d --name parts-app --network lab2-net -p 8080:8080 -e MONGO_HOST=mon
 | HTTP-verb | URL    | Information   | Status Code |
 |-----------|--------|---------------|-------------|
 | GET       | /parts | Get all parts | 200         |
-| POST      | /parts | Save a part   | 200         |
+| POST      | /parts | Save a part   | 201         |
 
 ### GET
 This endpoint will give you a list of all parts currently in the MongoDB database. This will return in JSON format.
