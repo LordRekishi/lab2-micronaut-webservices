@@ -49,6 +49,9 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Allow access to mvnw
+        run: chmod +x mvnw
+
       - name: Build a docker image
         run: ./mvnw package -Dpackaging=docker-native -Pgraalvm
 
