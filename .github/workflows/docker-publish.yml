@@ -57,5 +57,7 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push lab2-micronaut-webservices:latest
-          docker push lab2-micronaut-webservices:${{ env.VERSION }}
+          docker tag lab2-micronaut-webservices:latest ${{ env.IMAGE_NAME }}:latest
+          docker push ${{ env.IMAGE_NAME }}:latest
+          docker tag lab2-micronaut-webservices:latest ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
+          docker push ${{ env.IMAGE_NAME }}:${{ env.VERSION }}
